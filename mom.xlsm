@@ -1,0 +1,19 @@
+Sub iZakaz()
+Dim i As Long
+Dim iLastRow As Long
+Dim FoundKod As Range
+Sheets("Лист1").Select
+ iLastRow = Cells(Rows.Count, "B").End(xlUp).Row
+ With Worksheets("III")
+   For i = 2 To iLastRow
+     If Cells(i, "J") <> "" Then
+       Set FoundKod = .Columns(6).Find(Cells(i, "D"), , xlValues, xlWhole) 'oo?eoeia n eenoa caeaca
+         If Not FoundKod Is Nothing Then
+           .Cells(FoundKod.Row, "I") = Cells(i, "J")
+         Else
+         End If
+     End If
+   Next
+ End With
+Sheets("III").Select
+End Sub
